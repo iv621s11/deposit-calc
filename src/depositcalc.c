@@ -1,6 +1,5 @@
 #include <stdio.h>
-#ifndef DEPOSITCALC_H
-#define DEPOSITCALC_H
+#include "depositcalc.h"
 
 int check(int term, int startup)
 {
@@ -23,6 +22,7 @@ int check(int term, int startup)
 	}
 	return 1;
 }
+
 
 float summa(int term, int startup)
 {
@@ -71,4 +71,3 @@ float summa(int term, int startup)
 	}
 	return summa;
 }
-#endif
