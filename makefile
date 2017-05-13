@@ -15,4 +15,4 @@ build/depositcalc.o: src/depositcalc.c src/depositcalc.h
 	gcc -Wall -c src/depositcalc.c -o build/depositcalc.o
 	
 clean:
-	rm -f build/* build/* calc*
+	rm -f build/* build/* bin/calc*
