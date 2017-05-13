@@ -2,7 +2,7 @@
 
 all: calc
 
-calc:build/main.o build/depositcalc.o src/depositcalc.h
+calc:build/main.o build/depositcalc.o 
 	mkdir bin -p
 	gcc -Wall build/main.o build/depositcalc.o -o bin/calc
 	
