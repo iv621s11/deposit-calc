@@ -4,7 +4,7 @@
 int check(int term, int startup)
 {
 	int f;
-	if(startup <= 10000)
+	if(startup < 10000)
 	{	
 		printf("ERROR: Неправильная сумма вклада\n");
 		f = 1;
