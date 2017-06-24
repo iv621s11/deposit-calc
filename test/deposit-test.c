@@ -1,6 +1,16 @@
 #include <depositcalc.h>
 #include <ctest.h>
 
+//Описание:
+//Тест на правильность подсчета различных выражений функцией summa.
+//В тесте берутся конкретные значения term и startup.
+//Затем, выражение полученное с помощью функции summa сравнивается с ожидаемым.
+
+//Eng description:
+//Test the correctness of the calculation of the various expressions function summa.
+//In the test come from a specific value of term and startup.
+//Then, the expression obtained using summa is compared with the expected.
+
 CTEST(summa, calc-less_30_days-less_100k)
 {	
 	int term = 1;

@@ -1,6 +1,16 @@
 #include <depositcalc.h>
 #include <ctest.h>
 
+//Описание
+//Тест на правильность определения истина/ложь функции check.
+//В тесте берутся конкретные значения выражений term и startup.
+//Выражение полученное с помощью функции check сравнивается с ожидаемым(true/false).
+
+//Eng description:
+//Test the correctness of true/false function check.
+//In the test come from a specific value of term and startup.
+//The expression obtained using the function check is compared with the expected(true/false)
+
 CTEST(term_check_test, test1-valid-0_term)
 {	
 	int term = 0;
@@ -31,7 +41,7 @@ CTEST(term_check_test, test3-valid-365_term)
 	ASSERT_TRUE(result);
 }
 
-CTEST(check_test, test4-invalid-more_365_term)
+CTEST(term_check_test, test4-invalid-more_365_term)
 {	
 	int term = 367;
 	int startup = 150000;
