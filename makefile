@@ -1,34 +1,51 @@
-.PHONY: all clean test
+.PHONY: all clean test 
 
 
 all: bin/calc
-test: bin/calc_test
+test: bin/test/calc
 
+#all-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-bin/calc:build/main.o build/depositcalc.o src/depositcalc.h
+bin/calc:build/main.o build/depositcalc.o src/depositcalc.h bin
 	gcc -Wall -Werror -o bin/calc build/main.o build/depositcalc.o
 
 
-build/main.o: src/main.c src/depositcalc.h 
+bin:
+	mkdir "bin"
+
+build:
+	mkdir "build"
+
+
+build/main.o: src/main.c src/depositcalc.h build
 	gcc -I src -Werror -Wall -c -o build/main.o src/main.c 
 
-build/depositcalc.o: src/depositcalc.c src/depositcalc.h
+build/depositcalc.o: src/depositcalc.c src/depositcalc.h build
 	gcc -Wall -Werror -c -o build/depositcalc.o src/depositcalc.c 
 
+#test----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-bin/calc_test:build/main_test.o build/deposit-test.o build/validation-test.o build/depositcalc.o
-	gcc -Wall -Werror -o bin/calc_test build/main_test.o build/deposit-test.o build/validation-test.o build/depositcalc.o
+bin/test/calc:build/test/main_test.o build/test/deposit-test.o build/test/validation-test.o build/depositcalc.o bin/test 
+	gcc -Wall -Werror -o bin/test/calc_test build/test/main_test.o build/test/deposit-test.o build/test/validation-test.o build/depositcalc.o
 
 
-build/main_test.o:test/main.c thirdparty/ctest.h
-	gcc -Wall -Werror -I thirdparty -c -o build/main_test.o test/main.c
+bin/test:
+	mkdir "bin/test"
 
-build/deposit-test.o: test/deposit-test.c src/depositcalc.h thirdparty/ctest.h
-	gcc -Wall -Werror  -c -o build/deposit-test.o test/deposit-test.c
+build/test:
+	mkdir "build/test"
 
-build/validation-test.o:test/validation-test.c src/depositcalc.h thirdparty/ctest.h
-	gcc -Wall -Werror -I thirdparty  -c -o build/validation-test.o test/validation-test.c
 
+build/test/main_test.o:test/main.c thirdparty/ctest.h build/test
+	gcc -Wall -Werror -I thirdparty -c -o build/test/main_test.o test/main.c
+
+build/test/deposit-test.o: test/deposit-test.c src/depositcalc.h thirdparty/ctest.h build/test
+	gcc -Wall -Werror  -c -o build/test/deposit-test.o test/deposit-test.c
+
+build/test/validation-test.o:test/validation-test.c src/depositcalc.h thirdparty/ctest.h build/test
+	gcc -Wall -Werror -I thirdparty  -c -o build/test/validation-test.o test/validation-test.c
+
+#clean---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 clean:
-	rm -rf build/*.o bin/calc bin/calc_test
+	rm -rf build/*.o bin/calc bin/test/calc_test build/test/*.o
