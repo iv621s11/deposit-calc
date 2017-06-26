@@ -1,4 +1,5 @@
 language: c
 compiler: gcc
-script: make test
-script: ./bin/test/calc_test
+script:
+- make test
+- ./bin/test/calc_test
