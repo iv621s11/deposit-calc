@@ -37,13 +37,13 @@ build/test:
 
 
 build/test/main_test.o:test/main.c thirdparty/ctest.h build/test
-	gcc -Wall -Werror -I thirdparty -c -o build/test/main_test.o test/main.c
+	gcc -Wall -Werror -I thirdparty -c test/main.c -o build/test/main_test.o test/main.c
 
 build/test/deposit-test.o: test/deposit-test.c src/depositcalc.h thirdparty/ctest.h build/test
-	gcc -Wall -Werror  -c -o build/test/deposit-test.o test/deposit-test.c
+	gcc -Wall -Werror -I thirdparty -I src -c test/deposit-test.c -o build/test/deposit-test.o 
 
 build/test/validation-test.o:test/validation-test.c src/depositcalc.h thirdparty/ctest.h build/test
-	gcc -Wall -Werror -I thirdparty  -c -o build/test/validation-test.o test/validation-test.c
+	gcc -Wall -Werror -I thirdparty -I src -c test/validation-test.c -o build/test/validation-test.o 
 
 #clean---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
