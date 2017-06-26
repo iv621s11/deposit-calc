@@ -4,13 +4,13 @@
 int check(int term, int startup)
 {
 	int f;
-	if(startup <= 10000)
+	if(startup < 10000)
 	{	
 		printf("ERROR: Неправильная сумма вклада\n");
 		f = 1;
 	}
 	
-	if(term <= 0 || term > 365)
+	if(term < 0 || term > 365)
 	{
 		printf("ERROR: Неправильно введен срок вклада\n");
 		f = 1;
