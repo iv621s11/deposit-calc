@@ -10,7 +10,7 @@ int check(int term, int startup)
 		f = 1;
 	}
 	
-	if(term <= 0 || term > 365)
+	if(term < 0 || term > 365)
 	{
 		printf("ERROR: Неправильно введен срок вклада\n");
 		f = 1;
