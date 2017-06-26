@@ -29,15 +29,15 @@ bin/test/calc:build/test/main_test.o build/test/deposit-test.o build/test/valida
 	gcc -Wall -Werror -o bin/test/calc_test build/test/main_test.o build/test/deposit-test.o build/test/validation-test.o build/depositcalc.o
 
 
-bin/test:
+bin/test:bin
 	mkdir "bin/test"
 
-build/test:
+build/test:build
 	mkdir "build/test"
 
 
 build/test/main_test.o:test/main.c thirdparty/ctest.h build/test
-	gcc -Wall -Werror -I thirdparty -c test/main.c -o build/test/main_test.o test/main.c
+	gcc -Wall -Werror -I thirdparty -c test/main.c -o build/test/main_test.o
 
 build/test/deposit-test.o: test/deposit-test.c src/depositcalc.h thirdparty/ctest.h build/test
 	gcc -Wall -Werror -I thirdparty -I src -c test/deposit-test.c -o build/test/deposit-test.o 
