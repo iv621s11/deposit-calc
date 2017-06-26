@@ -1,5 +1,5 @@
-#include "depositcalc.h"
-#include "ctest.h"
+#include <depositcalc.h>
+#include <ctest.h>
 
 //Описание
 //Тест на правильность определения истина/ложь функции check.
